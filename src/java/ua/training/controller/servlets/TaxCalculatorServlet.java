@@ -16,7 +16,6 @@ public class TaxCalculatorServlet extends TaxServlet {
             throws IOException {
 
         for (Taxes tax : Taxes.values()){
-            System.out.println(tax.getName() + " : " + request.getParameter(tax.getName()));
             fieldManager.addCookie(response, tax.getName(), request.getParameter(tax.getName()));
         }
         response.sendRedirect(IConstants.TABLE_PATH);
