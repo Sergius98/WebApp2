@@ -24,11 +24,11 @@ public class Model {
         Collections.sort(taxTable);
     }
 
-    public Object getTaxes() {
+    public ArrayList<TableLine> getTaxes() {
         return taxTable;
     }
 
-    public Object getTaxSum() {
+    public double getTaxSum() {
         return sum;
     }
 }

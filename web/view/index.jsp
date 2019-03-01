@@ -10,17 +10,6 @@
 
 <%@include file="includes/header.jsp" %>
 
-    <div class="col-lg-2 dropdown open">
-      <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        ${MESSAGE.getString("language")}
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <c:forEach items="${LANGUAGES_LIST}" var="language">
-          <a class="dropdown-item" href="${URL}?language=${language}">${MESSAGE.getString(language)}</a>
-        </c:forEach>
-      </div>
-    </div>
-
     <div class="lab2_main">
       <div class="container my_main_block">
         <div class="row my_block my_head_block">

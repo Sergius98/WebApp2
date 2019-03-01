@@ -12,28 +12,17 @@
 
 <%@include file="includes/header.jsp" %>
 
-<div class="col-lg-2 dropdown open">
-  <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    ${MESSAGE.getString("language")}
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <c:forEach items="${LANGUAGES_LIST}" var="language">
-      <a class="dropdown-item" href="${URL}?language=${language}">${MESSAGE.getString(language)}</a>
-    </c:forEach>
-  </div>
-</div>
-
 <div class="lab2_main">
   <div class="container my_main_block">
     <div class="row my_block my_head_block">
       <span class="col text-center">${MESSAGE.getString("taxes_table")}</span>
     </div>
 
-    <div class="row my_block table-responsive-lg">
+    <div class="row my_white_block table-responsive-lg">
       <c:choose>
         <c:when test="${TAX_LIST.size() > 0}">
-          <table class="col text-center table " style="margin-top: 10px;">
-            <thead>
+          <table class="col text-center table table-striped" style="margin-top: 10px;">
+            <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">${MESSAGE.getString("table_name")}</th>
@@ -63,10 +52,22 @@
           </table>
         </c:when>
         <c:otherwise>
+          <div class="row my_block">
           <span class="col text-center">sorry, there's no data to display<br>
-          please visit claculator first</span>
+                                        please visit claculator first</span>
+          </div>
         </c:otherwise>
       </c:choose>
+    </div>
+    <div class="row my_block">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 text-center">
+
+        <a href="${pageContext.request.contextPath}/calculator" class="btn btn-outline-dark" role="button"
+           data-toggle="tooltip" data-placement="bottom" title="${MESSAGE.getString("back_to_calculator_message")}"
+        >${MESSAGE.getString("back_to_calculator")}</a>
+      </div>
+      <div class="col-lg-4"></div>
     </div>
   </div>
 </div>

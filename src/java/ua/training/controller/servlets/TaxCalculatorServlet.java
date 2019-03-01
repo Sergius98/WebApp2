@@ -13,13 +13,12 @@ public class TaxCalculatorServlet extends TaxServlet {
     static CookieManager fieldManager = new FieldCookieManager();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
 
         for (Taxes tax : Taxes.values()){
             System.out.println(tax.getName() + " : " + request.getParameter(tax.getName()));
             fieldManager.addCookie(response, tax.getName(), request.getParameter(tax.getName()));
         }
-        //doGet(request, response);
         response.sendRedirect(IConstants.TABLE_PATH);
     }
 

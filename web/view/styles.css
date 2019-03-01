@@ -1,9 +1,15 @@
 .my_block{
-    background-color: #eee;
+    background-color: #eeeeee;
     border-radius: 25px;
     margin: 5px;
     padding: 5px;
 }
+.my_white_block{
+     background-color: #ffffff;
+     border-radius: 25px;
+     margin: 5px;
+     padding: 5px;
+ }
 .my_block > .text-left{
     padding: 5px 20px;
 }
