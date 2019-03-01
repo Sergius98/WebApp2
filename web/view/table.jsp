@@ -7,8 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@include file="includes/header.jsp" %>
 
@@ -53,8 +51,12 @@
         </c:when>
         <c:otherwise>
           <div class="row my_block">
-          <span class="col text-center">sorry, there's no data to display<br>
-                                        please visit claculator first</span>
+
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 text-center">
+              <span class="col text-center">${MESSAGE.getString("empty_table_message")}</span>
+            </div>
+            <div class="col-lg-4"></div>
           </div>
         </c:otherwise>
       </c:choose>
