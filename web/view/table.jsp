@@ -50,14 +50,9 @@
           </table>
         </c:when>
         <c:otherwise>
-          <div class="row my_block">
-
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4 text-center">
-              <span class="col text-center">${MESSAGE.getString("empty_table_message")}</span>
+            <div class="col-12">
+              <span class="text-center">${MESSAGE.getString("empty_table_message")}</span>
             </div>
-            <div class="col-lg-4"></div>
-          </div>
         </c:otherwise>
       </c:choose>
     </div>
