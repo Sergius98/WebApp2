@@ -5,10 +5,19 @@
          version="4.0">
     <servlet>
         <servlet-name>Home</servlet-name>
-        <servlet-class>ua.training.servlet.TaxCalculatorServlet</servlet-class>
+        <servlet-class>ua.training.controller.servlets.TaxCalculatorServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/calculator</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Table</servlet-name>
+        <servlet-class>ua.training.controller.servlets.TaxTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Table</servlet-name>
+        <url-pattern>/table</url-pattern>
     </servlet-mapping>
 </web-app>

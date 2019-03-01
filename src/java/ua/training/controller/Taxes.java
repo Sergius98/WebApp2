@@ -1,7 +1,4 @@
-package ua.training.model;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.EnumSet;
+package ua.training.controller;
 
 public enum Taxes {
     INCOME_FROM_THE_MAIN_EMPLOYMENT ("income_from_the_main_employment", 0.25),
