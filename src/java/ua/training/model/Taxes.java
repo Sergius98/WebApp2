@@ -1,5 +1,6 @@
 package ua.training.model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.EnumSet;
 
 public enum Taxes {

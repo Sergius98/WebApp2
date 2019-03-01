@@ -8,5 +8,10 @@
       <file value="file://$PROJECT_DIR$/src/java/messages_uk.properties" />
       <base-name>messages</base-name>
     </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/java/messages_en.properties" />
+      <file value="file://$PROJECT_DIR$/src/java/messages_uk.properties" />
+      <base-name>messages</base-name>
+    </custom-resource-bundle>
   </component>
 </project>
