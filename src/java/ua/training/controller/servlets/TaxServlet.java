@@ -11,6 +11,12 @@ import java.util.ResourceBundle;
 
 public class TaxServlet extends HttpServlet {
     static CookieManager languageManager = new LanguageCookieManager();
+
+
+    /**
+     * return language tag that should be used
+     * search parameters and cookies to find current language tag
+     */
     String processLanguage(HttpServletRequest request, HttpServletResponse response){
         String languageTag = request.getParameter(IConstants.LANGUAGE);
         if (null != languageTag && languageManager.isValidValue(languageTag)){
@@ -21,6 +27,12 @@ public class TaxServlet extends HttpServlet {
         return languageTag;
     }
 
+    /**
+     * prepare attributes that will be passed to jsp from both servlets
+     * IConstants.MESSAGE
+     * IConstants.LANGUAGES_LIST
+     * IConstants.URL
+     */
     void processAttributes(HttpServletRequest request, String languageTag){
         ResourceBundle messages = ResourceBundle.getBundle(IConstants.MESSAGES_LOCALE_BASE_NAME, Locale.forLanguageTag(languageTag));
         request.setAttribute(IConstants.MESSAGE, messages);

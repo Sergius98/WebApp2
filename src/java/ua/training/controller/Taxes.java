@@ -1,5 +1,9 @@
 package ua.training.controller;
 
+/**
+ * contains all category of taxes that can be calculated in the program
+ * also contain name of the property field in messages and tax percentage
+ */
 public enum Taxes {
     INCOME_FROM_THE_MAIN_EMPLOYMENT ("income_from_the_main_employment", 0.25),
     INCOME_FROM_THE_ADDITIONAL_EMPLOYMENT    ("income_from_the_additional_employment", 0.4),

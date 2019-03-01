@@ -13,7 +13,11 @@ import java.io.IOException;
 public class TaxTableServlet extends TaxServlet {
     static CookieManager fieldManager = new FieldCookieManager();
 
-    public static void processUser(HttpServletRequest request) {
+    /**
+     * loads information from cookies about income that was inputted by user
+     * sets attributes IConstants.TAX_LIST and IConstants.TAX_SUM to be used in jsp
+     */
+    public void processUser(HttpServletRequest request) {
         Model model = new Model();
 
         for (Taxes field : Taxes.values()){

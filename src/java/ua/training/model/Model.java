@@ -11,6 +11,14 @@ public class Model {
         taxTable = new ArrayList<>();
         sum = 0;
     }
+
+    /**
+     * @param name - name of the category
+     * @param tax - tax percentage of the category
+     * @param fieldValueFromCookies - value received from user, amount of money in the category
+     *
+     * Tax category will be added to the output only if value passed from user bigger than 0.01
+     */
     public void loadTax(String name, double tax, String fieldValueFromCookies) {
         double value = Double.parseDouble(fieldValueFromCookies);
         if (Math.abs(value) >= 1e-2){

@@ -2,6 +2,9 @@ package ua.training.controller;
 
 //import java.util.ArrayList;
 
+/**
+ * contains all constants used in the program
+ */
 public interface IConstants {
     String LANGUAGE = "language";
     String CALCULATOR_PAGE = "view/index.jsp";
