@@ -2,6 +2,8 @@ package ua.training.controller.Cookies;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
+import java.util.Optional;
 
 public abstract class CookieManager {
 
@@ -11,6 +13,13 @@ public abstract class CookieManager {
      */
     public String getCookie(Cookie[] cookies, String name){
         if (null != cookies){
+            Optional<Cookie> cook = Arrays.stream(cookies)
+                    .filter(cookie -> name.equals(cookie.getName()))
+                    .filter(cookie -> isValidValue(cookie.getValue())).findFirst();
+            if (cook.isPresent()){
+                return(cook.get().getValue());
+            }
+            /*
             for (Cookie cookie : cookies){
                 if (name.equals(cookie.getName())){
                     if (isValidValue(cookie.getValue())){
@@ -19,6 +28,7 @@ public abstract class CookieManager {
                     break;
                 }
             }
+            */
         }
         return getDefaultValue();
     }

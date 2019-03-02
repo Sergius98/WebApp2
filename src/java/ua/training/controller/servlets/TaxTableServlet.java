@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class TaxTableServlet extends TaxServlet {
     static CookieManager fieldManager = new FieldCookieManager();
@@ -20,10 +21,16 @@ public class TaxTableServlet extends TaxServlet {
     public void processUser(HttpServletRequest request) {
         Model model = new Model();
 
+        Arrays.stream(Taxes.values())
+                .forEach(tax -> model.loadTax(
+                        tax.getName(), tax.getTax(), fieldManager.getCookie(request.getCookies(), tax.getName()))
+                );
+        /*
         for (Taxes field : Taxes.values()){
-            model.loadTax(field.getName(), field.getTax(),
-                    fieldManager.getCookie(request.getCookies(), field.getName()));
+            model.loadTax(field.getName(), field.getTax(), fieldManager.getCookie(request.getCookies(), field.getName()));
         }
+        */
+
         model.sortTaxes();
         request.setAttribute(IConstants.TAX_LIST, model.getTaxes());
         request.setAttribute(IConstants.TAX_SUM, model.getTaxSum());
