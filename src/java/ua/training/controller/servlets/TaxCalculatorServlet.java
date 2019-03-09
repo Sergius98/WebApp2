@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class TaxCalculatorServlet extends TaxServlet {
-    static CookieManager fieldManager = new FieldCookieManager();
+    private CookieManager fieldManager = new FieldCookieManager();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {

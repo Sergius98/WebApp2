@@ -8,7 +8,7 @@ import java.util.Optional;
 public abstract class CookieManager {
 
     /**
-     * search for value in cookies
+     * search for value in Cookies
      * if it is incorrect or inexistent then return a default value
      */
     public String getCookie(Cookie[] cookies, String name){
@@ -20,7 +20,7 @@ public abstract class CookieManager {
                 return(cook.get().getValue());
             }
             /*
-            for (Cookie cookie : cookies){
+            for (Cookie cookie : Cookies){
                 if (name.equals(cookie.getName())){
                     if (isValidValue(cookie.getValue())){
                         return(cookie.getValue());
@@ -34,7 +34,7 @@ public abstract class CookieManager {
     }
 
     /**
-     * add to cookies if value is correct
+     * add to Cookies if value is correct
      */
     public void addCookie(HttpServletResponse response, String name, String value){
         if (isValidValue(value)){

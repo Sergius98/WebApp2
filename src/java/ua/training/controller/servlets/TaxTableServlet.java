@@ -15,15 +15,15 @@ public class TaxTableServlet extends TaxServlet {
     static CookieManager fieldManager = new FieldCookieManager();
 
     /**
-     * loads information from cookies about income that was inputted by user
+     * loads information from Cookies about income that was inputted by user
      * sets attributes IConstants.TAX_LIST and IConstants.TAX_SUM to be used in jsp
      */
-    public void processUser(HttpServletRequest request) {
-        Model model = new Model();
+    public void processUser(HttpServletRequest request, String languageTag) {
+        Model model = new Model(languageTag);
 
         Arrays.stream(Taxes.values())
                 .forEach(tax -> model.loadTax(
-                        tax.getName(), tax.getTax(), fieldManager.getCookie(request.getCookies(), tax.getName()))
+                        tax.getNameArray(), fieldManager.getCookie(request.getCookies(), tax.getName()))
                 );
         /*
         for (Taxes field : Taxes.values()){
@@ -38,9 +38,9 @@ public class TaxTableServlet extends TaxServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processUser(request);
-
-        processAttributes(request, processLanguage(request, response));
+        String languageTag = processLanguage(request, response);
+        processUser(request, languageTag);
+        processAttributes(request, languageTag);
         request.setAttribute(IConstants.TAXES_TABLE, Taxes.values());
         request.getRequestDispatcher(IConstants.CALCULATOR_RESULT_PAGE).forward(request, response);
     }

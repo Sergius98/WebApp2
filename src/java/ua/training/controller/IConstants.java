@@ -2,6 +2,8 @@ package ua.training.controller;
 
 //import java.util.ArrayList;
 
+import java.util.Locale;
+
 /**
  * contains all constants used in the program
  */
@@ -23,6 +25,8 @@ public interface IConstants {
     String TAXES_TABLE = "TAXES_TABLE";
 
     String[] language_tags_list = {"en-US", "uk-UA"};
+
+    double APPROXIMATION = 1e-2;
     // should have properties files in that language and property with the same name in messages properties
     /*ArrayList<String> language_tags_list = new ArrayList<>() {{
         add("en-US");

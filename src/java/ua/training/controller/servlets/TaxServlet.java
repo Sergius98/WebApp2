@@ -7,24 +7,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TaxServlet extends HttpServlet {
     static CookieManager languageManager = new LanguageCookieManager();
 
-
     /**
      * return language tag that should be used
-     * search parameters and cookies to find current language tag
+     * search parameters and Cookies to find current language tag
      */
+
     String processLanguage(HttpServletRequest request, HttpServletResponse response){
-        String languageTag = request.getParameter(IConstants.LANGUAGE);
-        if (null != languageTag && languageManager.isValidValue(languageTag)){
-            languageManager.addCookie(response, IConstants.LANGUAGE, languageTag);
+        Optional<String> languageTag = Optional.ofNullable(request.getParameter(IConstants.LANGUAGE));
+        if (languageTag.isPresent() && languageManager.isValidValue(languageTag.get())){
+            languageManager.addCookie(response, IConstants.LANGUAGE, languageTag.get());
         } else {
-            languageTag = languageManager.getCookie(request.getCookies(), IConstants.LANGUAGE);
+            languageTag = Optional.of(
+                    languageManager.getCookie(request.getCookies(), IConstants.LANGUAGE)
+            );
         }
-        return languageTag;
+        return languageTag.get();
     }
 
     /**

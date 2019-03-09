@@ -1,6 +1,5 @@
 package ua.training.controller.Cookies;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ua.training.controller.IConstants;
 
