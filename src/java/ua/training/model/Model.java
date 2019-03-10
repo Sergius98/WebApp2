@@ -34,6 +34,7 @@ public class Model {
             taxTable.add(line);
             sum += line.getTax();
         }
+        sum = Math.round(sum * 100) / 100.;
     }
 
     public void sortTaxes() {
@@ -45,6 +46,6 @@ public class Model {
     }
 
     public double getTaxSum() {
-        return (double) Math.round(sum * 100) / 100;
+        return Math.round(sum * 100) / 100.;
     }
 }

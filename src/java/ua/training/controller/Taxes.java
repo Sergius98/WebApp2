@@ -18,15 +18,15 @@ public enum Taxes {
     CHILD_BENEFITS ("child_benefits", 0.01),
     FINANCIAL_ASSISTANCE ("financial_assistance", 0.5),
 */
-    CHILD_BENEFITS_ASSISTANCE(),
-    FINANCIAL_ASSISTANCE(),
-    CASH_GIFT (),
-    PROPERTY_GIFT (),
-    FOREIGN_CASH_GIFT (),
     MAIN_SALARY (),
     ADDITIONAL_SALARY (),
     ROYALTY_SALES (),
-    PROPERTY_SALES ();
+    PROPERTY_SALES (),
+    CASH_GIFT (),
+    PROPERTY_GIFT (),
+    FOREIGN_CASH_GIFT (),
+    CHILD_BENEFITS_ASSISTANCE(),
+    FINANCIAL_ASSISTANCE();
 
     protected Tax tax;
 

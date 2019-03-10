@@ -16,6 +16,7 @@ public class TaxFabricProducer {
         fabrics.put("salary", new SalaryTaxFabric(locale));
         fabrics.put("sales", new SalesTaxFabric(locale));
     }
+
     public TaxFabric getTaxFabric(String[] name) {
         Optional<TaxFabric> fabric = Optional.ofNullable(fabrics.get(name[name.length - 1]));
         if (fabric.isPresent()){
