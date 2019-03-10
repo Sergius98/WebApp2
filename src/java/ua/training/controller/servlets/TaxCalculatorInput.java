@@ -27,7 +27,6 @@ public class TaxCalculatorInput extends TaxCalculator {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println(request.getRequestURI());
         Arrays.stream(Taxes.values())
                 .forEach(tax -> request.setAttribute(
                         tax.getName(), fieldManager.getCookie(request.getCookies(), tax.getName())

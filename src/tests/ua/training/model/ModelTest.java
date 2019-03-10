@@ -1,15 +1,23 @@
 package ua.training.model;
 
 
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import static org.junit.Assert.assertEquals;
+
 public class ModelTest {
-    /*
+
     Model model;
     @Before
     public void init(){
-        model = new Model();
-        model.loadTax("second", 0.2, "1000");
-        model.loadTax("first", 0.25, "1000");
-        model.loadTax("third", 0.1, "1000");
+        model = new Model("en");
+        model.loadTax("main_salary".split("_"), "1111");
+        model.loadTax("additional_salary".split("_"), "5555");
+        model.loadTax("royalty_sales".split("_"), "3333");
     }
 
     @Test
@@ -19,9 +27,9 @@ public class ModelTest {
         int sum1 = (int) taxes.get(0).getTax();
         int sum2 = (int) taxes.get(1).getTax();
         int sum3 = (int) taxes.get(2).getTax();
-        assertEquals(250, sum1);
-        assertEquals(200, sum2);
-        assertEquals(100, sum3);
+        assertEquals(1111, sum1);
+        assertEquals(999, sum2);
+        assertEquals(276, sum3);
     }
 
     @Test
@@ -30,14 +38,13 @@ public class ModelTest {
         int sum1 = (int) taxes.get(0).getTax();
         int sum2 = (int) taxes.get(1).getTax();
         int sum3 = (int) taxes.get(2).getTax();
-        assertEquals(200, sum1);
-        assertEquals(250, sum2);
-        assertEquals(100, sum3);
+        assertEquals(276, sum1);
+        assertEquals(1111, sum2);
+        assertEquals(999, sum3);
     }
 
     @Test
     public void getTaxSum() {
-        assertEquals(550, (int) model.getTaxSum());
+        assertEquals(2387, (int) model.getTaxSum());
     }
-    */
 }

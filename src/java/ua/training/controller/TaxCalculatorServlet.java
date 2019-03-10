@@ -28,6 +28,7 @@ public class TaxCalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        request.setAttribute("PATHES", IConstants.PATHES);
         PAGES.getOrDefault(request.getRequestURI(),
                 PAGES.get(IConstants.DEFAULT_PAGE)
         ).doPost(request, response);
@@ -36,9 +37,10 @@ public class TaxCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        request.setAttribute("PATHES", IConstants.PATHES);
         PAGES.getOrDefault(request.getRequestURI(),
                 PAGES.get(IConstants.DEFAULT_PAGE)
         ).doGet(request, response);
-        request.setAttribute("PATHES", IConstants.PATHES);
     }
 }
