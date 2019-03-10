@@ -4,7 +4,7 @@ import ua.training.model.IResourcesManager;
 import ua.training.model.entity.tax_pattern.ConstantTax;
 
 public class CashGiftTax extends ConstantTax {
-    double percent;
+    private double percent;
 
     public CashGiftTax(String locale){
         super(locale);

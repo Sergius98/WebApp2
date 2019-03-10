@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class TaxTableServlet extends TaxServlet {
+public class TaxCalculatorTable extends TaxCalculator {
     static CookieManager fieldManager = new FieldCookieManager();
 
     /**
@@ -25,23 +25,25 @@ public class TaxTableServlet extends TaxServlet {
                 .forEach(tax -> model.loadTax(
                         tax.getNameArray(), fieldManager.getCookie(request.getCookies(), tax.getName()))
                 );
-        /*
-        for (Taxes field : Taxes.values()){
-            model.loadTax(field.getName(), field.getTax(), fieldManager.getCookie(request.getCookies(), field.getName()));
-        }
-        */
 
         model.sortTaxes();
         request.setAttribute(IConstants.TAX_LIST, model.getTaxes());
         request.setAttribute(IConstants.TAX_SUM, model.getTaxSum());
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String languageTag = processLanguage(request, response);
         processUser(request, languageTag);
         processAttributes(request, languageTag);
         request.setAttribute(IConstants.TAXES_TABLE, Taxes.values());
         request.getRequestDispatcher(IConstants.CALCULATOR_RESULT_PAGE).forward(request, response);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
     }
 }

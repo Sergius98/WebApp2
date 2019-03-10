@@ -29,7 +29,8 @@ public class AdditionalSalaryTax  extends ConstantTax {
     }
 
     private Calculator<Long, Double> calculator;
-    double percent;
+    private double percent;
+
     public AdditionalSalaryTax(String locale){
         super(locale);
         percent = IResourcesManager.getValue(locale, IResourcesManager.ADDITIONAL_SALARY_PERCENT);

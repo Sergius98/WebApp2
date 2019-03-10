@@ -26,12 +26,12 @@
             <div class="col-4">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/calculator">
+                        <a class="nav-link" href="${pageContext.request.contextPath}${PATHES.get("input")}">
                             ${MESSAGE.getString("calculator")}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/table">
+                        <a class="nav-link" href="${pageContext.request.contextPath}${PATHES.get("table")}">
                             ${MESSAGE.getString("table")}
                         </a>
                     </li>

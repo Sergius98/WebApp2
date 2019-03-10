@@ -8,6 +8,9 @@ public class FieldCookieManager extends CookieManager{
         return IConstants.DEFAULT_FIELD_VALUE;
     }
     public boolean isValidValue(String value){
-        return ((null != value) && (value.matches(IConstants.FIELD_REG_EX)));
+        return ( (null != value)
+                && (value.matches(IConstants.FIELD_REG_EX))
+                && ((Double.parseDouble(value) * 100) < (double)Long.MAX_VALUE)
+        );
     }
 }

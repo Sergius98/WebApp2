@@ -4,7 +4,7 @@ import ua.training.model.IResourcesManager;
 import ua.training.model.entity.tax_pattern.ConstantTax;
 
 public class ChildBenefitsAssistanceTax extends ConstantTax {
-    double percent;
+    private double percent;
 
     public ChildBenefitsAssistanceTax(String locale){
         super(locale);

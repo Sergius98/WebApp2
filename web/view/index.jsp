@@ -15,7 +15,7 @@
         <div class="row my_block my_head_block">
           <span class="col text-center">${MESSAGE.getString("taxes_calculator")}</span>
         </div>
-        <form method="POST" action="/calculator">
+        <form method="POST" action="${PATHES.get("input")}">
           <c:forEach items="${TAXES}" var="tax">
             <div class="row my_block">
               <div class="col-lg-5 text-left">

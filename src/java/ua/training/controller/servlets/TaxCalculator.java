@@ -3,14 +3,16 @@ package ua.training.controller.servlets;
 import ua.training.controller.Cookies.CookieManager;
 import ua.training.controller.Cookies.LanguageCookieManager;
 import ua.training.controller.IConstants;
-import javax.servlet.http.HttpServlet;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class TaxServlet extends HttpServlet {
+public abstract class TaxCalculator {
     static CookieManager languageManager = new LanguageCookieManager();
 
     /**
@@ -42,4 +44,9 @@ public class TaxServlet extends HttpServlet {
         request.setAttribute(IConstants.LANGUAGES_LIST, IConstants.language_tags_list);
         request.setAttribute(IConstants.URL, request.getRequestURL().toString());
     }
+
+    public abstract void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException;
+    public abstract void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException;
 }

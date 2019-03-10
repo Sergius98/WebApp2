@@ -5,8 +5,8 @@ import ua.training.model.entity.Tax;
 
 public abstract class AccumulativeTax extends Tax{
 
-    protected long[] sections;
-    protected double[] percents;
+    private long[] sections;
+    private double[] percents;
 
 
     public AccumulativeTax(String locale, String limit_name, String percent_name){

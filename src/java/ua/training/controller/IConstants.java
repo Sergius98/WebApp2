@@ -2,12 +2,32 @@ package ua.training.controller;
 
 //import java.util.ArrayList;
 
-import java.util.Locale;
+import ua.training.controller.servlets.TaxCalculator;
+import ua.training.controller.servlets.TaxCalculatorInput;
+import ua.training.controller.servlets.TaxCalculatorTable;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * contains all constants used in the program
  */
 public interface IConstants {
+    HashMap<String, String> PATHES = Stream.of(new String[][] {
+            { "input", "/input" },
+            { "table", "/table" },
+    }).collect(Collectors.toMap(key -> key[0], value -> value[1], (k1, k2) -> k1,  HashMap::new));
+
+    String[] language_tags_list = {
+            "en-US",
+            "uk-UA"
+    };
+
+    double APPROXIMATION = 1e-2;
+
+    String DEFAULT_PAGE = PATHES.get("input");
     String LANGUAGE = "language";
     String CALCULATOR_PAGE = "view/index.jsp";
     String CALCULATOR_RESULT_PAGE = "view/table.jsp";
@@ -18,18 +38,9 @@ public interface IConstants {
     String TAX_LIST = "TAX_LIST";
     String TAX_SUM = "TAX_SUM";
     String TAXES = "TAXES";
-    String TABLE_PATH = "/table";
+    String TABLE_PATH = PATHES.get("table");
     String MESSAGE = "MESSAGE";
     String LANGUAGES_LIST = "LANGUAGES_LIST";
     String URL = "URL";
     String TAXES_TABLE = "TAXES_TABLE";
-
-    String[] language_tags_list = {"en-US", "uk-UA"};
-
-    double APPROXIMATION = 1e-2;
-    // should have properties files in that language and property with the same name in messages properties
-    /*ArrayList<String> language_tags_list = new ArrayList<>() {{
-        add("en-US");
-        add("uk-UA");
-    }};*/
 }

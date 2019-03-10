@@ -60,7 +60,7 @@
       <div class="col-lg-4"></div>
       <div class="col-lg-4 text-center">
 
-        <a href="${pageContext.request.contextPath}/calculator" class="btn btn-outline-dark" role="button"
+        <a href="${pageContext.request.contextPath}${PATHES.get("input")}" class="btn btn-outline-dark" role="button"
            data-toggle="tooltip" data-placement="bottom" title="${MESSAGE.getString("back_to_calculator_message")}"
         >${MESSAGE.getString("back_to_calculator")}</a>
       </div>
