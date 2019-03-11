@@ -33,6 +33,7 @@ public class TaxCalculatorInput extends TaxCalculator {
                 ));
 
         processAttributes(request, processLanguage(request, response));
+
         request.setAttribute(IConstants.TAXES, Taxes.values());
         request.getRequestDispatcher(IConstants.CALCULATOR_PAGE).forward(request, response);
     }

@@ -14,7 +14,9 @@ public abstract class AccumulativeTax extends Tax{
         long[] sections = IResourcesManager.getLongArray(locale, limit_name);
         double[] percents = IResourcesManager.getArray(locale, percent_name);
         if (sections.length != percents.length || percents.length == 0){
-            throw new ArrayIndexOutOfBoundsException("length of sections and percentage should be even and non-zero");
+            throw new ArrayIndexOutOfBoundsException(
+                    IResourcesManager.WRONG_ARRAYS
+            );
         }
         this.sections = sections;
         this.percents = percents;

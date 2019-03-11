@@ -27,6 +27,7 @@ public class TaxCalculatorTable extends TaxCalculator {
                 );
 
         model.sortTaxes();
+
         request.setAttribute(IConstants.TAX_LIST, model.getTaxes());
         request.setAttribute(IConstants.TAX_SUM, model.getTaxSum());
     }
@@ -35,8 +36,11 @@ public class TaxCalculatorTable extends TaxCalculator {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String languageTag = processLanguage(request, response);
+
         processUser(request, languageTag);
+
         processAttributes(request, languageTag);
+
         request.setAttribute(IConstants.TAXES_TABLE, Taxes.values());
         request.getRequestDispatcher(IConstants.CALCULATOR_RESULT_PAGE).forward(request, response);
     }

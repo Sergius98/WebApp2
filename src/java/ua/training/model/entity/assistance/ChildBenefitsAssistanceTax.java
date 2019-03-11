@@ -8,7 +8,8 @@ public class ChildBenefitsAssistanceTax extends ConstantTax {
 
     public ChildBenefitsAssistanceTax(String locale){
         super(locale);
-        percent = IResourcesManager.getValue(locale, IResourcesManager.CHILD_BENEFITS_ASSISTANCE_PERCENT);
+        percent = IResourcesManager.getValue(locale,
+                IResourcesManager.CHILD_BENEFITS_ASSISTANCE_PERCENT);
     }
 
     @Override

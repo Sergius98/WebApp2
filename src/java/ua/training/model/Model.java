@@ -26,11 +26,15 @@ public class Model {
      */
     public void loadTax(String[] name,String fieldValueFromCookies) {
         double value = Double.parseDouble(fieldValueFromCookies);
+
         if (Math.abs(value) >= IConstants.APPROXIMATION){
             Tax tax = fabrics.getTaxFabric(name).getTax(name);
+
             tax.calculateTax((long)(value * IResourcesManager.HUNDRED));
+
             TableLine line = new TableLine(String.join("_", name),
                     tax.getSum(), tax.getTaxPercentage(), tax.getTaxSum());
+
             taxTable.add(line);
             sum += line.getTax();
         }

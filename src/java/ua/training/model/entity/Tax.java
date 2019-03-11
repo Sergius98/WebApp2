@@ -16,7 +16,10 @@ public abstract class Tax {
         return (double) Math.round((double)tax) / 100;
     }
     public double getTaxPercentage(){
-        return ( ((double) Math.round((double)tax)) / ((double) Math.round((double)sum)) );
+        return (
+                ((double) Math.round((double)tax))
+                / ((double) Math.round((double)sum))
+        );
     }
 
     protected final void setSum(long sum){  // in coins

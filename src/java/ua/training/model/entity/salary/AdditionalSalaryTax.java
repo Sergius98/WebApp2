@@ -19,8 +19,12 @@ public class AdditionalSalaryTax  extends ConstantTax {
     static {
         calculators.put(IResourcesManager.UKRAINIAN_LANGUAGE_TAG,
                 (sum, percentage) -> {
-                    if (sum > IResourcesManager.HUNDRED * IResourcesManager.getValue(
-                            IResourcesManager.UKRAINIAN_LANGUAGE_TAG, IResourcesManager.MINIMAL_SALARY)){
+                    if (sum > IResourcesManager.HUNDRED
+                            * IResourcesManager.getValue(
+                                IResourcesManager.UKRAINIAN_LANGUAGE_TAG,
+                                IResourcesManager.MINIMAL_SALARY
+                            )
+                    ){
                         return (long)(sum * percentage);
                     }
                     return (long)(sum * (percentage / IResourcesManager.TWO));
@@ -33,7 +37,10 @@ public class AdditionalSalaryTax  extends ConstantTax {
 
     public AdditionalSalaryTax(String locale){
         super(locale);
-        percent = IResourcesManager.getValue(locale, IResourcesManager.ADDITIONAL_SALARY_PERCENT);
+
+        percent = IResourcesManager.getValue(locale,
+                IResourcesManager.ADDITIONAL_SALARY_PERCENT);
+
         calculator = calculators.getOrDefault(locale, DefaultCalculator);
     }
 

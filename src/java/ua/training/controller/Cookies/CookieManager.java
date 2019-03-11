@@ -16,19 +16,10 @@ public abstract class CookieManager {
             Optional<Cookie> cook = Arrays.stream(cookies)
                     .filter(cookie -> name.equals(cookie.getName()))
                     .filter(cookie -> isValidValue(cookie.getValue())).findFirst();
+
             if (cook.isPresent()){
                 return(cook.get().getValue());
             }
-            /*
-            for (Cookie cookie : Cookies){
-                if (name.equals(cookie.getName())){
-                    if (isValidValue(cookie.getValue())){
-                        return(cookie.getValue());
-                    }
-                    break;
-                }
-            }
-            */
         }
         return getDefaultValue();
     }
@@ -39,6 +30,7 @@ public abstract class CookieManager {
     public void addCookie(HttpServletResponse response, String name, String value){
         if (isValidValue(value)){
             Cookie fieldCookie = new Cookie(name, value);
+            
             fieldCookie.setMaxAge(Integer.MAX_VALUE);
             response.addCookie(fieldCookie);
         }

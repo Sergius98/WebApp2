@@ -8,7 +8,10 @@ public class RoyaltySalesTax extends ConstantTax {
 
     public RoyaltySalesTax(String locale){
         super(locale);
-        percent = IResourcesManager.getValue(locale, IResourcesManager.ROYALTIES_PERCENT);
+
+        percent = IResourcesManager.getValue(
+                locale, IResourcesManager.ROYALTIES_PERCENT
+        );
     }
 
     @Override

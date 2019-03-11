@@ -8,7 +8,9 @@ public class CashGiftTax extends ConstantTax {
 
     public CashGiftTax(String locale){
         super(locale);
-        percent = IResourcesManager.getValue(locale, IResourcesManager.CASH_GIFT_PERCENT);
+
+        percent = IResourcesManager.getValue(locale,
+                IResourcesManager.CASH_GIFT_PERCENT);
     }
 
     @Override

@@ -1,13 +1,6 @@
 package ua.training.controller;
 
-//import java.util.ArrayList;
-
-import ua.training.controller.servlets.TaxCalculator;
-import ua.training.controller.servlets.TaxCalculatorInput;
-import ua.training.controller.servlets.TaxCalculatorTable;
-
 import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

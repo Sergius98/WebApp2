@@ -1,5 +1,7 @@
 package ua.training.model.entity;
 
+import ua.training.model.IResourcesManager;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Optional;
@@ -25,20 +27,30 @@ public abstract class TaxFabric {
 
     public final Tax getTax(String[] name){
         StringBuilder buff = new StringBuilder();
+
         for (int i = 0; i < name.length - 1; i++){
             buff.append(name[i]);
-            Optional<Class> tax = Optional.ofNullable(taxes.get(buff.toString()));
+            Optional<Class> tax = Optional.ofNullable(
+                    taxes.get(buff.toString())
+            );
+
             if (tax.isPresent()){
                 try {
-                    return (Tax)tax.get().getConstructor(String.class).newInstance(getLocale());
+                    return (Tax)tax.get().getConstructor(String.class)
+                            .newInstance(getLocale());
                 } catch (InstantiationException | IllegalAccessException
                         | InvocationTargetException | NoSuchMethodException e) {
                     e.printStackTrace();
-                    throw new IllegalArgumentException("creating a Tax object failed for " + buff);
+                    throw new IllegalArgumentException(
+                            IResourcesManager.CREATING_A_TAX_OBJECT_FAILED_FOR
+                                    + buff
+                    );
                 }
             }
-            buff.append("_");
+            buff.append(IResourcesManager.NAME_DELIMETER);
         }
-        throw new IllegalArgumentException("there is no Tax that matches" + name.toString());//buff.toString());
+        throw new IllegalArgumentException(
+                IResourcesManager.NO_TAX + name.toString()
+        );
     }
 }

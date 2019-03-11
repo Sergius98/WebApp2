@@ -22,6 +22,7 @@ public abstract class TaxCalculator {
 
     String processLanguage(HttpServletRequest request, HttpServletResponse response){
         Optional<String> languageTag = Optional.ofNullable(request.getParameter(IConstants.LANGUAGE));
+
         if (languageTag.isPresent() && languageManager.isValidValue(languageTag.get())){
             languageManager.addCookie(response, IConstants.LANGUAGE, languageTag.get());
         } else {

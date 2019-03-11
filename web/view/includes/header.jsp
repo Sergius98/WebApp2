@@ -39,7 +39,7 @@
             </div>
             <!-- Brand/logo -->
             <div class="col-8 text-right">
-                <a class="navbar-brand my_logo" href="#"> MSS</a>
+                <a class="navbar-brand my_logo" href="#"> <!--M-->GSS</a>
             </div>
         </nav>
     </div>
