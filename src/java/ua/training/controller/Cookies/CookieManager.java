@@ -12,6 +12,15 @@ public abstract class CookieManager {
      * if it is incorrect or inexistent then return a default value
      */
     public String getCookie(Cookie[] cookies, String name){
+        Optional<Cookie> cook = (cookies == null)
+                ? Optional.empty()
+                : Arrays.stream(cookies)
+                .filter(cookie -> name.equals(cookie.getName()))
+                .filter(cookie -> isValidValue(cookie.getValue())).findFirst();
+        return cook.isPresent()
+                ? cook.get().getValue()
+                : getDefaultValue();
+        /*
         if (null != cookies){
             Optional<Cookie> cook = Arrays.stream(cookies)
                     .filter(cookie -> name.equals(cookie.getName()))
@@ -22,6 +31,7 @@ public abstract class CookieManager {
             }
         }
         return getDefaultValue();
+        */
     }
 
     /**
@@ -30,7 +40,7 @@ public abstract class CookieManager {
     public void addCookie(HttpServletResponse response, String name, String value){
         if (isValidValue(value)){
             Cookie fieldCookie = new Cookie(name, value);
-            
+
             fieldCookie.setMaxAge(Integer.MAX_VALUE);
             response.addCookie(fieldCookie);
         }
