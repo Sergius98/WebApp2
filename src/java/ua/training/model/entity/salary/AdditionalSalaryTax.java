@@ -11,7 +11,8 @@ public class AdditionalSalaryTax  extends ConstantTax {
         long calculate(T sum, V percent);
     }
 
-    private static HashMap<String, Calculator<Long, Double>> calculators = new HashMap();
+    private static HashMap<String, Calculator<Long, Double>> calculators =
+            new HashMap<String, Calculator<Long, Double>>();
 
     private static Calculator<Long, Double> DefaultCalculator = (
             (sum, percentage) -> ((long)(sum * percentage))
@@ -19,15 +20,13 @@ public class AdditionalSalaryTax  extends ConstantTax {
     static {
         calculators.put(IResourcesManager.UKRAINIAN_LANGUAGE_TAG,
                 (sum, percentage) -> {
-                    if (sum > IResourcesManager.HUNDRED
+                    long wall = (long) (IResourcesManager.HUNDRED
                             * IResourcesManager.getValue(
-                                IResourcesManager.UKRAINIAN_LANGUAGE_TAG,
-                                IResourcesManager.MINIMAL_SALARY
-                            )
-                    ){
-                        return (long)(sum * percentage);
-                    }
-                    return (long)(sum * (percentage / IResourcesManager.TWO));
+                                    IResourcesManager.UKRAINIAN_LANGUAGE_TAG,
+                                    IResourcesManager.MINIMAL_SALARY));
+                    return (long)(( sum > wall )
+                            ?( sum * percentage )
+                            :( sum * (percentage / IResourcesManager.TWO) ));
                 }
         );
     }

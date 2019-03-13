@@ -16,10 +16,8 @@ public class FinancialAssistanceTax extends AccumulativeTax {
         OptionalInt index = IntStream.range(0, sections.length)
                 .filter(i -> sections[i] * IResourcesManager.HUNDRED >= sum)
                 .findFirst();
-
-        if (index.isPresent()){
-            return (long)((double)sum * percents[index.getAsInt()]);
-        }
-        return (long)((double)sum * percents[percents.length - 1]);
+        return (long)(( index.isPresent() )
+                ? ( sum * percents[index.getAsInt()] )
+                : ( sum * percents[percents.length - 1] ));
     }
 }

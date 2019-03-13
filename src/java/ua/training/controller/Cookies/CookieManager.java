@@ -16,7 +16,8 @@ public abstract class CookieManager {
                 ? Optional.empty()
                 : Arrays.stream(cookies)
                 .filter(cookie -> name.equals(cookie.getName()))
-                .filter(cookie -> isValidValue(cookie.getValue())).findFirst();
+                .filter(cookie -> isValidValue(cookie.getValue()))
+                .findFirst();
         return cook.isPresent()
                 ? cook.get().getValue()
                 : getDefaultValue();
